@@ -18,9 +18,7 @@ class _MainScreenState extends State<MainScreen> {
     const HomeScreen(),
     const Center(child: Text('Search', style: TextStyle(color: Colors.white))),
     const Center(child: Text('Your Library', style: TextStyle(color: Colors.white))),
-    // Note: User wants Profile. Profile is usually accessed from the Home screen's top-left avatar,
-    // but sometimes premium or something is on the right. 
-    // We will build the ProfileScreen so it can be navigated to.
+    const Center(child: Text('Premium', style: TextStyle(color: Colors.white))),
   ];
 
   void _onItemTapped(int index) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/login_screen.dart';
 import 'package:flutter_application_1/utils/colors.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -16,9 +17,26 @@ class ProfileScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
-          IconButton(
+          PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert, color: SpotifyColors.white),
-            onPressed: () {},
+            color: SpotifyColors.darkGrey,
+            onSelected: (value) {
+              if (value == 'logout') {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  (route) => false, // Remove all previous routes
+                );
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                const PopupMenuItem<String>(
+                  value: 'logout',
+                  child: Text('Log out', style: TextStyle(color: SpotifyColors.white)),
+                ),
+              ];
+            },
           ),
         ],
       ),
